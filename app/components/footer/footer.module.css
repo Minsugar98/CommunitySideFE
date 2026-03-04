@@ -1,0 +1,89 @@
+.footerContainer {
+  background-color: #2c3e50; /* Dark background for a sleek look */
+  color: #ecf0f1; /* Light text color */
+  padding: 40px 20px; /* Adjusted padding */
+  box-sizing: border-box;
+  font-family: Arial, sans-serif; /* Consistent font */
+}
+
+.footerContent {
+  display: flex;
+  flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
+  justify-content: space-between;
+  gap: 30px; /* Space between sections */
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+}
+
+.footerSection {
+  flex: 1; /* Allow sections to grow */
+  min-width: 200px; /* Minimum width before wrapping */
+}
+
+.logoContainer {
+  margin-bottom: 15px;
+}
+
+.companyDescription {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #bdc3c7;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 15px;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.socialIcon:hover {
+  background-color: #3498db; /* A nice blue on hover */
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkList li {
+  margin-bottom: 10px;
+}
+
+.linkItem {
+  color: #bdc3c7;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.linkItem:hover {
+  color: #3498db; /* Blue on hover */
+}
+
+.footerBottom {
+  text-align: center;
+  padding-top: 30px;
+  font-size: 0.8rem;
+  color: #bdc3c7;
+}

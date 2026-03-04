@@ -1,0 +1,36 @@
+.boxBanner {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* 가로 스와이프 컨테이너 */
+.carouselWrapper {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.carouselWrapper::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+/* 각 슬라이드 */
+.slide {
+  position: relative;
+  min-width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+  flex-shrink: 0;
+}
+
+/* 이미지 스타일 */
+.bannerImage {
+  object-fit: cover;
+}

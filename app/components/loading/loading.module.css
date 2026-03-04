@@ -1,0 +1,57 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  z-index: 9999;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.logoText {
+  font-size: 32px;
+  font-weight: 800;
+  color: #83c2e4; /* 프로젝트 메인 컬러 */
+  letter-spacing: -1px;
+}
+
+.loaderBar {
+  width: 140px;
+  height: 4px;
+  background-color: #f3f3f3;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loaderBar::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 100%;
+  background-color: #F2D680; /* 포인트 컬러 */
+  border-radius: 2px;
+  animation: loadingMove 1.5s infinite ease-in-out;
+}
+
+@keyframes loadingMove {
+  0% { left: -60px; }
+  100% { left: 140px; }
+}
+
+.text {
+  font-size: 16px;
+  color: #888;
+  font-weight: 500;
+  margin: 0;
+}

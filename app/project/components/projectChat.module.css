@@ -1,0 +1,146 @@
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  height: 600px; /* 대시보드 내 고정 높이 */
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #eef2f6;
+}
+
+.chatHeader {
+  padding: 16px 20px;
+  background: #fbfcfe;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+}
+
+.status {
+  font-size: 0.75rem;
+  color: #10b981;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 50%;
+}
+
+.messageList {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #f8fafc;
+}
+
+.messageWrapper {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.myMessage {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.otherMessage {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.senderName {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 4px;
+  margin-left: 4px;
+}
+
+.bubble {
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  position: relative;
+  line-height: 1.4;
+}
+
+.myMessage .bubble {
+  background: #1e293b;
+  color: #ffffff;
+  border-bottom-right-radius: 2px;
+}
+
+.otherMessage .bubble {
+  background: #ffffff;
+  color: #1e293b;
+  border-bottom-left-radius: 2px;
+  border: 1px solid #e2e8f0;
+}
+
+.time {
+  font-size: 0.65rem;
+  opacity: 0.6;
+  position: absolute;
+  bottom: -18px;
+  white-space: nowrap;
+}
+
+.myMessage .time { right: 4px; color: #94a3b8; }
+.otherMessage .time { left: 4px; color: #94a3b8; }
+
+.inputArea {
+  padding: 16px;
+  background: #ffffff;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  gap: 10px;
+}
+
+.inputArea input {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  outline: none;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.inputArea input:focus {
+  border-color: #1e293b;
+}
+
+.sendBtn {
+  width: 42px;
+  height: 42px;
+  background: #1e293b;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s;
+}
+
+.sendBtn:active { transform: scale(0.95); }

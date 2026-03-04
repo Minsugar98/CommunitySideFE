@@ -1,0 +1,126 @@
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  display: flex;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+/* 메인 컨텐츠 영역 */
+.content {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.tabTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #f8f9fa;
+  padding-bottom: 15px;
+}
+
+/* 입력 그룹 */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  margin-left: 4px;
+}
+
+.input {
+  padding: 14px;
+  border: 1px solid #e1e4e6;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #83c2e4;
+  box-shadow: 0 0 0 3px rgba(131, 194, 228, 0.1);
+}
+
+/* 수정 불가 필드 */
+.inputDisabled {
+  padding: 14px;
+  border: 1px solid #eee;
+  background-color: #f9fafb;
+  color: #999;
+  border-radius: 10px;
+  cursor: not-allowed;
+  font-size: 15px;
+}
+
+/* 비밀번호 섹션 */
+.passwordSection {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f8fbfd;
+  border-radius: 12px;
+  border: 1px dashed #cde4f1;
+}
+
+.subInfo {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+/* 버튼 */
+.saveBtn {
+  width: 100%;
+  margin-top: 30px;
+  background-color: #83c2e4;
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.1s,
+    background-color 0.2s;
+}
+
+.saveBtn:hover {
+  background-color: #6fb0d3;
+}
+
+.saveBtn:active {
+  transform: scale(0.98);
+}
+
+/* 로딩 상태 */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-weight: 500;
+  color: #83c2e4;
+}
+
+/* 반응형 처리 */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .tabTitle {
+    font-size: 20px;
+  }
+}
