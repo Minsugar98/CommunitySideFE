@@ -17,7 +17,8 @@ interface FormData {
   content: string;
   startDate: string;
   endDate: string;
-  meetingType: string;
+  // 💡 string 대신 허용된 리터럴 타입으로 구체화합니다.
+  meetingType: 'ONLINE' | 'OFFLINE' | 'HYBRID'; 
   recruitmentQuota: number;
   position: string[];
   techStacks: string[];
