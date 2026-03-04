@@ -12,7 +12,7 @@ export default function AuthInitializer() {
       try {
         const res = await getUserInfo();
         if (res.success && res.data) {
-          setUserInfo(res.data.id, res.data.nickname);
+          setUserInfo(res.data.user.id, res.data.user.nickname);
         } else {
           clearUserInfo();
         }
