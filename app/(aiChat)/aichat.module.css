@@ -2,7 +2,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 80vh;
   max-width: 42rem; /* max-w-2xl */
   margin: 0 auto;
   background-color: #f9fafb; /* gray-50 */
@@ -20,8 +20,8 @@
   align-items: center;
   justify-content: space-between;
   position: sticky;
-  top: 0;
-  z-index: 10;
+  top: 63.74;
+  top: 0; /* Changed from invalid '63.74' to '0' for sticky header */
 }
 
 .title {
@@ -167,4 +167,30 @@
   background-color: #d1d5db; /* gray-300 */
   cursor: not-allowed;
   box-shadow: none;
+}
+
+/* New styles for AI Result Suggestions */
+.aiResultSuggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  justify-content: center; /* Center the buttons */
+  padding: 0 1rem; /* Add some horizontal padding */
+}
+
+.aiResultButton {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; /* pill shape */
+  border: 1px solid #e5e7eb; /* gray-200 */
+  background-color: #ffffff;
+  color: #1f2937; /* gray-800 */
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.aiResultButton:hover {
+  background-color: #f3f4f6; /* gray-100 */
+  border-color: #d1d5db; /* gray-300 */
 }

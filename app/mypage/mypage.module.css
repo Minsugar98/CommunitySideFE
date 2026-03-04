@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.sidebar {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.profileSection {
+  text-align: center;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 16px;
+}
+
+.avatarLarge {
+  width: 100px;
+  height: 100px;
+  background: #ddd;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+}
+
+.navMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.navMenu button {
+  padding: 15px;
+  text-align: left;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.navMenu button.active {
+  background-color: #83c2e4;
+  color: white;
+}
+
+.content {
+  flex: 1;
+  background: white;
+  padding: 40px;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  min-height: 600px;
+}
+
+.logoutBtn {
+  margin-top: auto;
+  color: #ff4d4f;
+  background: none;
+  border: 1px solid #ff4d4f;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.logoutBtn:hover {
+  background: #fff1f0;
+}

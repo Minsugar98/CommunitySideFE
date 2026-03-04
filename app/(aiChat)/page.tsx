@@ -15,16 +15,9 @@ export default function AiChat() {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [aiResult, setAiResult] = useState<string[]>([]); // aiResult의 타입을 string[]으로 명시적으로 지정
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages, isLoading]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,8 +53,9 @@ export default function AiChat() {
       const botMessage: Message = {
         id: Date.now() + 1,
         role: 'model',
-        text: data.reply,
+        text: data.description,
       };
+      setAiResult(data.result);
 
       setMessages((prev) => [...prev, botMessage]);
     } catch (error: any) {
@@ -82,7 +76,7 @@ export default function AiChat() {
     <div className={styles.container}>
       {/* 헤더 */}
       <header className={styles.header}>
-        <h1 className={styles.title}>AI Chat Bot</h1>
+        <h1 className={styles.title}>기획 AI</h1>
         <span className={styles.badge}>Gemini 2.5</span>
       </header>
 
@@ -90,7 +84,7 @@ export default function AiChat() {
       <main className={styles.chatArea}>
         {messages.length === 0 && (
           <div className={styles.emptyState}>
-            <p>대화를 시작해보세요!</p>
+            <p>AI에게 아이디어를 전달해보세요.</p>
           </div>
         )}
 
@@ -120,10 +114,25 @@ export default function AiChat() {
             </div>
           </div>
         )}
+
         <div ref={messagesEndRef} />
       </main>
 
       {/* 입력 영역 */}
+      {/* AI Result Suggestions as buttons */}
+      {!isLoading && aiResult.length > 0 && (
+        <div className={styles.aiResultSuggestions}>
+          {aiResult.map((item, index) => (
+            <button
+              key={index}
+              className={styles.aiResultButton}
+              onClick={() => setInput(item)} // 클릭 시 입력창에 제안 채우기
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+      )}
       <footer className={styles.footer}>
         <form onSubmit={handleSubmit} className={styles.form}>
           <input

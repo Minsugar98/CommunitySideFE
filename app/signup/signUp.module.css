@@ -1,0 +1,105 @@
+.mainContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  padding: 5%;
+  gap: 10px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.fromContainer {
+  display: flex;
+  flex-direction: column;
+  width: 640px;
+  height: 100%;
+  gap: 10px;
+}
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fromText {
+  font-size: 20px;
+}
+.relativeContainer {
+  /* display: flex;
+  gap: 10px; */
+  position: relative;
+  width: 100%;
+}
+
+.fromInput {
+  width: 100%; /* 부모 너비에 맞춤 */
+  height: 50px; /* 높이를 조금 키워 가독성 확보 */
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 0 50px 0 15px; /* 오른쪽에 아이콘 공간(50px) 확보 */
+  font-size: 16px;
+  outline-color: #83c2e4;
+  transition: border-color 0.2s;
+}
+
+.fromInput:focus {
+  border-color: #83c2e4;
+}
+.errorMessage {
+  color: red;
+  font-size: 14px;
+  margin-top: -5px; /* Adjust spacing */
+  margin-bottom: 5px;
+  align-self: flex-start; /* Align error message with input */
+}
+
+.linkText {
+  color: #83c2e4;
+}
+
+.signUpBtn {
+  /* Common styles for the button */
+  width: 640px;
+  height: 50px;
+  border: none;
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.passIconBtn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #999;
+  font-size: 20px;
+  padding: 5px;
+  transition: color 0.2s;
+}
+
+.signUpBtnActive {
+  background-color: #83c2e4; /* One of the brand colors */
+  color: white;
+}
+
+.signUpBtnDisabled {
+  background-color: #cccccc; /* Gray for disabled state */
+  color: #666666;
+  cursor: not-allowed;
+}
+
+/* // #fce27d
+// #83c2e4 */

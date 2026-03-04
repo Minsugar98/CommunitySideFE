@@ -1,0 +1,181 @@
+.container {
+  padding: 20px;
+}
+
+/* 상단 컨트롤 영역 */
+.topControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.currentMonthTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+}
+
+.viewToggle {
+  display: flex;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 14px;
+  gap: 4px;
+}
+
+.viewToggle button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+}
+
+.viewToggle button.activeTab {
+  background: white;
+  color: #83c2e4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 1️⃣ 월별 보기 달력 래퍼 */
+.calendarWrapper {
+  background: white;
+  padding: 20px;
+  border-radius: 24px;
+  border: 1px solid #edf2f7;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+/* 2️⃣ 스프린트 보드 레이아웃 */
+.timelineBoard {
+  border: 1px solid #f0f0f0;
+  border-radius: 20px;
+  background: white;
+  overflow: hidden;
+}
+
+.memberRow {
+  display: flex;
+  border-bottom: 1px solid #f7f7f7;
+  min-height: 100px; /* 일정이 여러 개 쌓여도 보이도록 충분한 높이 */
+}
+
+.memberRow:last-child {
+  border-bottom: none;
+}
+
+.memberProfile {
+  width: 220px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fafafa;
+  border-right: 1px solid #f0f0f0;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: #83c2e4;
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.memberInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 700;
+  color: #2d3748;
+  font-size: 0.95rem;
+}
+
+.role {
+  font-size: 0.75rem;
+  color: #a0aec0;
+  font-weight: 600;
+}
+
+/* 💡 스프린트 캘린더 영역 가시성 강화 */
+.memberCalendar {
+  flex-grow: 1;
+  background: white;
+  min-width: 0;
+}
+
+/* 주간 뷰에서 일정 바가 숨겨지지 않도록 강제 설정 */
+.memberCalendar :global(.fc-daygrid-day-events) {
+  min-height: 80px !important; 
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  padding: 6px !important;
+}
+
+/* 일정 바(Harness)가 레이아웃을 무시하지 않게 설정 */
+.memberCalendar :global(.fc-daygrid-event-h-harness) {
+  position: relative !important;
+  visibility: visible !important;
+  display: block !important;
+  margin-bottom: 2px !important;
+}
+
+/* 💡 공통 이벤트 디자인 (월별/주간 통합) */
+.customEvent {
+  border: none !important;
+  border-left: 4px solid currentColor !important; /* 왼쪽 보더로 상태 강조 */
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  padding: 4px 8px !important;
+  border-radius: 6px !important;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.customEvent:hover {
+  transform: scale(1.01);
+  filter: brightness(0.95);
+}
+
+/* 캘린더 헤더/셀 스타일 통일 */
+.calendarWrapper :global(.fc-col-header-cell),
+.memberCalendar :global(.fc-col-header-cell) {
+  background: #f8fafc;
+  padding: 12px 0 !important;
+  color: #64748b;
+  font-weight: 700;
+  border-bottom: 1px solid #edf2f7 !important;
+}
+
+/* 날짜 숫자 스타일 (월별 보기용) */
+.calendarWrapper :global(.fc-daygrid-day-number) {
+  padding: 10px !important;
+  font-weight: 700;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+/* 스프린트 모드에서는 개별 날짜 숫자 숨김 (상단 헤더와 중복되므로) */
+.memberCalendar :global(.fc-daygrid-day-top) {
+  display: none;
+}
+
+/* 오늘 날짜 하이라이트 */
+:global(.fc-day-today) {
+  background: rgba(255, 253, 245, 0.5) !important;
+}
