@@ -39,10 +39,7 @@ export default function SignUp() {
     }
   }, [userId, router]);
 
-  // --- 💡 로딩 중 UI 반환 ---
-  if (isCheckingAuth || userId) {
-    return <Loading />;
-  }
+  
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
   const toggleConfirmPasswordVisibility = () =>
@@ -109,6 +106,11 @@ export default function SignUp() {
         password !== '',
     );
   }, [email, password, confirmPassword]);
+
+  // --- 💡 로딩 중 UI 반환 ---
+  if (isCheckingAuth || userId) {
+    return <Loading />;
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
