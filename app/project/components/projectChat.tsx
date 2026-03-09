@@ -17,6 +17,8 @@ export default function ProjectChat({ projectId }: ProjectChatProps) {
   const [socket, setSocket] = useState<Socket | null>(null);
   const [message, setMessage] = useState('');
   const [chatLog, setChatLog] = useState<any[]>([]);
+  const serverUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:3001';
+  
   
   // 무한 스크롤 관련 상태
   const [page, setPage] = useState(1);
@@ -68,7 +70,7 @@ export default function ProjectChat({ projectId }: ProjectChatProps) {
 
   // 4. 소켓 연결
   useEffect(() => {
-    const newSocket = io('http://localhost:3001', {
+    const newSocket = io(serverUrl, {
       transports: ['websocket'],
       withCredentials: true,
       query: { projectId: String(projectId) },
