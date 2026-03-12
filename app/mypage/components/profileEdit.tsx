@@ -54,8 +54,6 @@ export default function ProfileEdit({ user }: ProfileEditProps) {
       // 💡 포스트맨에서 보냈던 것처럼 urlLinks도 추가 (현재 폼에 있다면)
       // finalData.urlLinks = ["https://github.com/Minsugar98"];
 
-      console.log('🚀 서버로 날아가는 최종 데이터:', finalData);
-
       const res = await updateUserInfo(finalData);
 
       if (res.success) {

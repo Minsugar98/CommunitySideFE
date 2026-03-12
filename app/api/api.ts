@@ -10,7 +10,7 @@ import axios from 'axios';
 // });
 // apiClient.ts
 export const apiClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001/",
+  baseURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001',
   withCredentials: true, // 💡 이게 있어야 브라우저가 쿠키(access_token)를 실어 보냅니다!
   headers: {
     'Content-Type': 'application/json',
@@ -38,7 +38,6 @@ apiClient.interceptors.response.use(
     // 401 Unauthorized 에러 발생 시 (로그인 만료 등)
     if (error.response?.status === 401) {
       // 로그아웃 처리나 로그인 페이지 이동 로직
-      console.log('인증이 만료되었습니다.');
     }
     return Promise.reject(error);
   },

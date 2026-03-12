@@ -2,7 +2,14 @@
 
 import React, { useMemo } from 'react';
 import styles from './leftSideBar.module.css';
-import { LayoutDashboard, Calendar, MessageSquare, Settings, Users, ChevronLeft } from 'lucide-react';
+import {
+  LayoutDashboard,
+  Calendar,
+  MessageSquare,
+  Settings,
+  Users,
+  ChevronLeft,
+} from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 interface LeftSideBarProps {
@@ -14,28 +21,42 @@ interface LeftSideBarProps {
   isLeader: boolean; // 💡 Props 추가
 }
 
-export default function LeftSideBar({ projectId, activeTab, setActiveTab, project, events,isLeader }: LeftSideBarProps) {
+export default function LeftSideBar({
+  projectId,
+  activeTab,
+  setActiveTab,
+  project,
+  events,
+  isLeader,
+}: LeftSideBarProps) {
   const router = useRouter();
 
   // 💡 실시간 진행률 계산 (대시보드와 로직 통일)
   const progress = useMemo(() => {
     if (!events || events.length === 0) return 0;
-    const completed = events.filter(e => (e.status || e.extendedProps?.status) === 'DONE').length;
+    const completed = events.filter(
+      (e) => (e.status || e.extendedProps?.status) === 'DONE',
+    ).length;
     return Math.round((completed / events.length) * 100);
   }, [events]);
 
   const filteredMenuItems = useMemo(() => {
     const items = [
-      { id: 'dashboard', label: '대시보드', icon: <LayoutDashboard size={20} /> },
+      {
+        id: 'dashboard',
+        label: '대시보드',
+        icon: <LayoutDashboard size={20} />,
+      },
       { id: 'calendar', label: '일정 관리', icon: <Calendar size={20} /> },
       { id: 'chat', label: '팀 채팅', icon: <MessageSquare size={20} /> },
+      { id: 'board', label: '게시판', icon: <MessageSquare size={20} /> },
       { id: 'members', label: '팀원 현황', icon: <Users size={20} /> },
       { id: 'settings', label: '설정', icon: <Settings size={20} /> },
     ];
 
     // 리더가 아니면 settings 메뉴 제거
     if (!isLeader) {
-      return items.filter(item => item.id !== 'settings');
+      return items.filter((item) => item.id !== 'settings');
     }
     return items;
   }, [isLeader]);
@@ -43,7 +64,10 @@ export default function LeftSideBar({ projectId, activeTab, setActiveTab, projec
   return (
     <div className={styles.sidebar}>
       <div className={styles.header}>
-        <button className={styles.backBtn} onClick={() => router.push('/sideproject')}>
+        <button
+          className={styles.backBtn}
+          onClick={() => router.push('/sideproject')}
+        >
           <ChevronLeft size={18} /> 목록으로
         </button>
         <div className={styles.projectInfo}>
@@ -64,8 +88,8 @@ export default function LeftSideBar({ projectId, activeTab, setActiveTab, projec
             const isActive = activeTab === item.id;
             return (
               <li key={item.id} className={styles.menuItem}>
-                <button 
-                  className={`${styles.menuBtn} ${isActive ? styles.menuBtnActive : ''}`} 
+                <button
+                  className={`${styles.menuBtn} ${isActive ? styles.menuBtnActive : ''}`}
                   onClick={() => setActiveTab(item.id)}
                 >
                   <span className={styles.icon}>{item.icon}</span>
@@ -84,7 +108,10 @@ export default function LeftSideBar({ projectId, activeTab, setActiveTab, projec
             <span className={styles.percent}>{progress}%</span>
           </div>
           <div className={styles.progressBar}>
-            <div className={styles.progressFill} style={{ width: `${progress}%` }}></div>
+            <div
+              className={styles.progressFill}
+              style={{ width: `${progress}%` }}
+            ></div>
           </div>
         </div>
       </div>

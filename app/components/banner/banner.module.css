@@ -27,7 +27,7 @@
 }
 
 .bannerImage {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* 오른쪽 아래 컨트롤 */

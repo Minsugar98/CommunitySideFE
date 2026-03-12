@@ -11,6 +11,12 @@ export interface ProjectCreateRequest {
   techStacks: string[];
 }
 
+export interface GetPostsParams {
+  page?: number;
+  limit?: number;
+  keyword?: string;
+}
+
 // 프로젝트 상세 정보 응답 타입 (나중에 상세 페이지에서 사용)
 export interface ProjectDetail extends ProjectCreateRequest {
   id: number;
@@ -41,7 +47,7 @@ export interface GetProjectsQuery {
   page?: number;
   limit?: number;
   status?: boolean;
-  meetingType? : string;
+  meetingType?: string;
   position?: string[];
   techStack?: string[]; // 백엔드 DTO와 이름 맞춤
 }
@@ -58,12 +64,12 @@ export interface ProjectItem {
   position: string[];
   techStacks: string[]; // 백엔드 필드명 확인 필요 (techStack vs techStacks)
   status: boolean;
-  content:string;
+  content: string;
   leader: {
     nickname: string;
     profileImage: string | null;
-    id:number;
-    bio?:string;
+    id: number;
+    bio?: string;
   };
   projectApplications?: {
     id: number;
@@ -88,9 +94,6 @@ export interface ProjectsResponse {
   };
 }
 
-
-
-
 export interface TaskItem {
   id: number;
   projectId: number;
@@ -104,7 +107,7 @@ export interface TaskItem {
   updatedAt: string;
   assignedTo: {
     email: string;
-    id:number;
+    id: number;
   };
 }
 export interface CreateTaskDto {
@@ -115,14 +118,18 @@ export interface CreateTaskDto {
   assignedToId?: number;
 }
 
-
 export interface EditProjectDto {
   title?: string;
   summary?: string;
   content?: string;
-  position?: string[];      // 모집 포지션 배열
-  techStacks?: string[];    // 기술 스택 배열
-  status?: boolean;         // 모집 중 여부 (true: 모집중, false: 마감)
+  position?: string[]; // 모집 포지션 배열
+  techStacks?: string[]; // 기술 스택 배열
+  status?: boolean; // 모집 중 여부 (true: 모집중, false: 마감)
   startDate?: string;
   endDate?: string;
+}
+
+export interface CreatePostRequest {
+  title: string;
+  content: string;
 }

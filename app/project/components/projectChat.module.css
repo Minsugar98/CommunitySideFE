@@ -49,6 +49,19 @@
   flex-direction: column;
   gap: 16px;
   background: #f8fafc;
+  /* 💡 smooth 애니메이션 제거 (JS 제어와 충돌 방지) */
+  scroll-behavior: auto;
+  /* 💡 자동 스크롤 보정 해제 */
+  overflow-anchor: none;
+}
+
+.loader {
+  text-align: center;
+  padding: 10px;
+  font-size: 0.8rem;
+  color: #64748b;
+  background: #f1f5f9;
+  border-radius: 8px;
 }
 
 .messageWrapper {
@@ -104,8 +117,14 @@
   white-space: nowrap;
 }
 
-.myMessage .time { right: 4px; color: #94a3b8; }
-.otherMessage .time { left: 4px; color: #94a3b8; }
+.myMessage .time {
+  right: 4px;
+  color: #94a3b8;
+}
+.otherMessage .time {
+  left: 4px;
+  color: #94a3b8;
+}
 
 .inputArea {
   padding: 16px;
@@ -143,4 +162,6 @@
   transition: transform 0.1s;
 }
 
-.sendBtn:active { transform: scale(0.95); }
+.sendBtn:active {
+  transform: scale(0.95);
+}
