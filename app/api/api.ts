@@ -10,7 +10,7 @@ import axios from 'axios';
 // });
 // apiClient.ts
 export const apiClient = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001/",
   withCredentials: true, // 💡 이게 있어야 브라우저가 쿠키(access_token)를 실어 보냅니다!
   headers: {
     'Content-Type': 'application/json',

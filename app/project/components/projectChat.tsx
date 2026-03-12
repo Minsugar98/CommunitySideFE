@@ -17,9 +17,9 @@ export default function ProjectChat({ projectId }: ProjectChatProps) {
   const [socket, setSocket] = useState<Socket | null>(null);
   const [message, setMessage] = useState('');
   const [chatLog, setChatLog] = useState<any[]>([]);
-  const serverUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:3001';
+  const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001';
   
-  
+  console.log(serverUrl)
   // 무한 스크롤 관련 상태
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
